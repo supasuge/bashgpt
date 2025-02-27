@@ -3,9 +3,9 @@
 ![BashGPT Logo](logo.png)
 
 **Inspiration:**  
-Ever been at the terminal, only to have the command slip your mind at the last minute? BashGPT is here to help! Instead of rummaging through man pages, googling it real quick, checking cheat sheets or going through notes, simply ask a brief question straight from your terminal and get a detailed, accurate response. BashGPT interacts with OpenAI’s API to deliver real-time answers all from your command-line; formatted nicely by converting Markdown to a minimal themed color-coded/structured format using ANSI escap colors for a clear and engaging reading experience.
+Ever been at the terminal, only to have the command slip your mind at the last minute? BashGPT is here to help! Instead of rummaging through man pages, googling it real quick, checking cheat sheets or going through notes, simply ask a brief question straight from your terminal and get a detailed, accurate response. BashGPT interacts with OpenAI’s API to deliver real-time answers all from your command-line. With responses formatted nicely by converting the output's usual Markdown formatting to a color coded format using ANSI escape codes for a clear and engaging reading experience whilst still maintaining the responses original structure.
 
-If your on a linux desktop as I am, launching a terminal is a 2-key shortcut; while opening firefox and navigating to a site on the internet is a multi-step process that can be quite time consuming if not handled efficiently. The end goal of this project is to provide a CLI interface similar to the Official Web interface in regards to functionality/quality using only the API in a bash script.  
+If your on a linux desktop as I am, launching a terminal is a 2-key shortcut, while opening Firefox and navigating to *xyz* site for assitance can be a multi-step process that can be quite time consuming if not handled efficiently. Thus the end goal of this project is to provide a CLI interface similar to the Official Web interface in regards to functionality/quality using only the API in a simple and easy to use bash script.  
 
 ---
 
@@ -24,7 +24,7 @@ If your on a linux desktop as I am, launching a terminal is a 2-key shortcut; wh
 ## Prerequisites 📦
 
 1. **OpenAI API Key:**  
-First things first, sign up at [OpenAI (Playground)](https://platform.openai.com/) and set your API key environment variable as `OPENAI_API_KEY:
+First things first, sign up at [OpenAI (Playground)](https://platform.openai.com/) and set your API key environment variable as `OPENAI_API_KEY`:
 
 ```bash
 export OPENAI_API_KEY=sk.........
@@ -34,27 +34,30 @@ To make the environment variable persistent across reboots and different termina
 **Quick note on API Key security/Best Practices**
 
 - Best practice is to put `export OPENAI_API_KEY=...` in its own file (`~/.openai_key`) with pemissions `600` so it's only accesible to the file owner to prevent it from unauthorized access/disclosure.
-- Then, simply append a line that `source`'s the file at the bottom of your `~/.bashrc` OR `~/.zshrc` file. In other words, `source` works similarly to pythons `eval()` expression. So it's reading the file and evaluating `export OPENAI_API_KEY=....` to set the environment variable rather then leaving the API key hardcoded in the shell profile configs. It's not hugely different, however additional file attributes and permissions can help further secure the file from unauthorized access.
+- Then, simply append a line that `source`'s the file at the bottom of your `~/.bashrc` OR `~/.zshrc` file.
+   - `source` works similarly to pythons `eval()` expression. So it's reading the file and evaluating `export OPENAI_API_KEY=....` to set the environment variable rather then leaving the API key hardcoded in the shell profile configs. It's not hugely different, however additional file attributes and permissions can help further secure the file from unauthorized access.
 
 **Example:**
 
 ```bash
 touch ~/.openai_key
 echo 'export OPENAI_API_KEY=sk-........' >> ~/.openai_key
-chmod 600 ~/.openai_key
+chmod 600 ~/.openai_key # Only accessible to owner (you)
 echo 'source ~/.openai_key' >> ~/.zshrc # make sure this is the rc file of the default shell you have configured.
 ```
 
 2. **Dependencies:**  
-   - `curl`
-   - `jq`
-   - `bash` (tested on version 4.x and above)
+   - `curl`: API requests.
+   - `jq`: Response parsing/formatting.
    - Optionally, `pygmentize` for enhanced syntax highlighting.
+      - `sudo apt-get install python3-Pygments`
+      - `pip install Pygments`
+        
    
 On Debian/Ubuntu:
+> Note: you only need pip here to install pygmentize, the CLI interface to the Pygments python library used for syntax highlighting
 
 ```bash
-# you only need pip here to install pygmentize, the CLI interface to the Pygments python library used for syntax highlighting
 sudo apt-get update -y && sudo apt-get install -y jq curl && sudo apt-get install python3-Pygments || pip install Pygments || sudo apt-get install python3-pip || pip install Pygments --break-system-packages. 
 ```
 
