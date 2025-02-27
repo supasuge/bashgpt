@@ -151,7 +151,7 @@ gpt -i
 
 6. **Live Web Search:**
 ```bash
-gpt -q "Latest news on deez big ol' nuts."
+gpt -q "Latest academic news on cybersecurity and/or quantum computing"
 ```
 
 7. **Documentation Help:**
