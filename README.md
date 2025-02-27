@@ -3,7 +3,9 @@
 ![BashGPT Logo](logo.png)
 
 **Inspiration:**  
-Ever been at the terminal, only to have the command slip your mind at the last minute? BashGPT is here to help! Instead of rummaging through cheat sheets or notes, simply ask a brief question straight from your terminal and get a detailed, accurate response. BashGPT interacts with OpenAI’s API to deliver real-time answers, formatted in beautifully rendered Markdown with ANSI colors for a clear and engaging reading experience.
+Ever been at the terminal, only to have the command slip your mind at the last minute? BashGPT is here to help! Instead of rummaging through man pages, googling it real quick, checking cheat sheets or going through notes, simply ask a brief question straight from your terminal and get a detailed, accurate response. BashGPT interacts with OpenAI’s API to deliver real-time answers all from your command-line; formatted nicely by converting Markdown to a minimal themed color-coded/structured format using ANSI escap colors for a clear and engaging reading experience.
+
+If your on a linux desktop as I am, launching a terminal is a 2-key shortcut; while opening firefox and navigating to a site on the internet is a multi-step process that can be quite time consuming if not handled efficiently. The end goal of this project is to provide a CLI interface similar to the Official Web interface in regards to functionality/quality using only the API in a bash script.  
 
 ---
 
